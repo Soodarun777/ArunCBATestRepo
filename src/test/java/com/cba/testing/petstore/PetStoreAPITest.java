@@ -41,7 +41,7 @@ public class PetStoreAPITest {
     @Test
     public void testCreatePetById() throws IOException {
     	
-		String petFilePath = "C:\\workspace\\CBA-APIFramework\\src\\test\\java\\resources\\createpet.json";
+		String petFilePath = "./src/test/java/resources/createpet.json";
 		String jsonFileContent = CommonRoutines.ReadJsonFileAsString(petFilePath);
 		
 		
