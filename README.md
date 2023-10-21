@@ -31,7 +31,7 @@ Step 5: Click on "BuildCIPipeline" and all the last build run for this project w
 
 Step 6: On the Top right hand side (under the main Teamcity Cloud header), click on "Run" button.
 
-Step 7: This will trigger the build and you will see the code running.
+Step 7: This will trigger the build plan on CI Server, get code from Git Hub, compile and run test cases using maven and finally you will see the code running. Happy Testing :-)
 
 
 
