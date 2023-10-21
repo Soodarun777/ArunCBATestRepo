@@ -22,7 +22,7 @@ public class PetStoreAPITest {
         RestAssured.baseURI = "https://petstore.swagger.io/v2";
     }
 
-    @Test
+    @Test(priority=1) // Find pet by ID
     public void testGetPetById() {
         Response response = RestAssured.given()
                 .when()
@@ -38,7 +38,7 @@ public class PetStoreAPITest {
 
     // Add more test methods for other endpoints
     
-    @Test
+    @Test(priority=0) //Add a new pet to the store
     public void testCreatePetById() throws IOException {
     	
 		String petFilePath = "./src/test/java/resources/createpet.json";
@@ -60,9 +60,55 @@ public class PetStoreAPITest {
     }
     
     
+    @Test(priority=3) //Deletes a pet
+    public void testDeletePetById() throws IOException {
+    	
+		
+        RestAssured.given()
+			        .when()
+			        .post("/pet/8")
+			        .then()
+			        .statusCode(200);
+		
+    }
     
-    @Test
-    public void testGetPetNotFoundById() {
+    @Test(priority=4) //404 - Updates a pet in the store with form data
+    public void testUpdatePetById404() throws IOException {
+    	
+		
+        Response response = RestAssured.given()
+			        .when()
+			        .param("name", "")
+			        .param("status", "")
+			        .post("/pet/7654321");
+		
+
+        int statusCode = response.getStatusCode();
+        Assert.assertEquals(statusCode, 404);
+
+    }
+    
+    @Test(priority=2) //Updates a pet in the store with form data
+    public void testUpdatePetById() throws IOException {
+    	
+		
+        Response response = RestAssured.given()
+			        .when()
+			        .param("name", "UpdatedDoggie")
+			        .param("status", "UpdatedAvailable")
+			        .post("/pet/8");
+		
+
+        int statusCode = response.getStatusCode();
+        Assert.assertEquals(statusCode, 200);
+
+        String responseBody = response.getBody().asString();
+        response.prettyPrint();
+        // Add more validation here
+    }
+    
+    @Test(priority=5)
+    public void testGetPetById404() {
         Response response = RestAssured.given()
                 .when()
                 .get("/pet/7654321");
