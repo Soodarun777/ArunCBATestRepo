@@ -65,7 +65,7 @@ public class PetStoreAPITest {
     public void testGetPetNotFoundById() {
         Response response = RestAssured.given()
                 .when()
-                .get("/pet/6");
+                .get("/pet/7654321");
 
         int statusCode = response.getStatusCode();
         Assert.assertEquals(statusCode, 404);
