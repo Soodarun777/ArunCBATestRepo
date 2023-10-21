@@ -1,15 +1,43 @@
 # ArunCBATestRepo
 
-- How to run this code
-We can run this code from command line:
-mvn clean install
-Or
+Description
+------------
+Created a feature branch named as "feature/ArunSood-CBATest" from main trunk
+and initially merged some code in main branch to test the develop and code on CI server.
+
+This is a sample regression suite which i have created as a part of test.
+If asked for then i can automate each and every API for each and every business logic test, status code, etc in the PET, STORE and USER API.
+
+---------------------
+HOW TO RUN THE CODE
+-------------------
 I have setup a Continues Integration Server named Teamcity on cloud which and have set up a BuildCIPipeline, which runs this code everytime any automation developer checks in the code in the GIT repository.
 
-URL for Teamcity cloud is - 
+URL for Teamcity cloud is - https://arunsood.teamcity.com/
+---------------------------------------------------------
+Step 1: Open URL - https://arunsood.teamcity.com/
+
+Step 2: Click on link "continue with username/password"
+
+Step 3: Enter Username
+TestManager
+and
+password
+Ruhhi
+
+Step 4: Click on "ArunCBATestRepo" under Projects Menu on the left hand side
+
+Step 5: Click on "BuildCIPipeline" and all the last build run for this project will be visible on screen.
+
+Step 6: On the Top right hand side (under the main Teamcity Cloud header), click on "Run" button.
+
+Step 7: This will trigger the build and you will see the code running.
+
+
 
 
 Few improvements which comes TOP of my head, which can be done later are as below:
+-----------------------------------------------------------------
 1: Read all the hardcoded values from a properties or config file instead of hardcoding the same. 
 For ex: Refer line# 21 to set "RestAssured.baseURI" in PetStoreAPITest.java class
 
