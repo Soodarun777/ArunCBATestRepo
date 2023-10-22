@@ -11,7 +11,8 @@ If asked for then i can automate each and every API for each and every business 
 ---------------------
 HOW TO RUN THE CODE
 -------------------
-I have setup a Continues Integration Server named Teamcity on cloud which and have set up a BuildCIPipeline, which runs this code everytime any automation developer checks in the code in the GIT repository.
+Have setup a Continues Integration Server named Teamcity on cloud where, have set up a BuildCIPipeline, which runs this code everytime any automation developer checks in the code in the GIT repository.
+**Note: The Teamcity Cloud has a trial version and will expire on 1st Nov 2023, incase needed after 1st Nov, 2023 kindly let me know.**
 
 URL for Teamcity cloud is - https://arunsood.teamcity.com/
 ---------------------------------------------------------
