@@ -31,7 +31,7 @@ Step 5: Click on "BuildCIPipeline" and all the last build run for this project w
 
 Step 6: On the Top right hand side (under the main Teamcity Cloud header), click on "Run" button.
 
-Step 7: This will trigger the build and you will see the code running.
+Step 7: This will trigger the build plan on CI Server, get code from Git Hub, compile and run test cases using maven and finally you will see the code running. Happy Testing :-)
 
 
 
@@ -47,6 +47,7 @@ For ex: Refer line# 21 to set "RestAssured.baseURI" in PetStoreAPITest.java clas
 
 2: This is a regression suite only hence have not automated many more scenarios which can actually be automated having many more HTTP Status codes to be tested, for ex:
 
+-----------------------------------------------------------------------------------------
 2xx Status Codes [Success]
 ---------------------------
 Status Code
@@ -72,6 +73,7 @@ Allows a client to tell the server that the same resource (with the same binding
 226 IM Used
 The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.
 
+-----------------------------------------------------------------------------------------
 3xx Status Codes (Redirection)
 --------------------------------
 Status Code
@@ -95,7 +97,7 @@ Indicates the client to get the requested resource at another URI with same meth
 308 Permanent Redirect (experimental)
 Indicates that the resource is now permanently located at another URI, specified by the Location header. It is similar to 301 Moved Permanently with one exception that the same HTTP method will be used that was used in the prior request.
 
-
+-----------------------------------------------------------------------------------------
 4xx Status Codes (Client Error)
 --------------------------------
 Status Code
@@ -167,6 +169,7 @@ The user-agent requested a resource that cannot legally be provided.
 499 Client Closed Request (Nginx)
 The connection is closed by the client while HTTP server is processing its request, making the server unable to send the HTTP header back.
 
+-----------------------------------------------------------------------------------------
 5xx Status Codes (Server Error)
 --------------------------------
 Status Code
@@ -194,7 +197,7 @@ Further extensions to the request are required for the server to fulfill it.
 511 Network Authentication Required
 Indicates that the client needs to authenticate to gain network access.
 
-
+------------------------------------------------------------------------------------------
 3: Read absolute file path from a properties file instead of hardcoding the same. 
 For ex: Refer line# 42 in PetStoreAPITest.java class
   
