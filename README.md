@@ -38,6 +38,10 @@ Step 7: This will trigger the build and you will see the code running.
 
 Few improvements which comes TOP of my head, which can be done later are as below:
 -----------------------------------------------------------------
+
+0: A lot of Test methods can be added for all the validations which are needed as per business logic testing or requirement of the end user.
+This all assertions can be done on the values returned in response body.
+
 1: Read all the hardcoded values from a properties or config file instead of hardcoding the same. 
 For ex: Refer line# 21 to set "RestAssured.baseURI" in PetStoreAPITest.java class
 

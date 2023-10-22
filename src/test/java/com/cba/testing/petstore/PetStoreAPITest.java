@@ -55,6 +55,8 @@ public class PetStoreAPITest {
         Assert.assertEquals(statusCode, 200);
 
         String responseBody = response.getBody().asString();
+        
+        System.out.println("Response for testCreatePetById()...");
         response.prettyPrint();
         // Add more validation here
     }
@@ -103,11 +105,13 @@ public class PetStoreAPITest {
         Assert.assertEquals(statusCode, 200);
 
         String responseBody = response.getBody().asString();
+        
+        System.out.println("Response for testUpdatePetById()...");
         response.prettyPrint();
         // Add more validation here
     }
     
-    @Test(priority=5)
+    @Test(priority=5) // find a pet which doesn't exists returning 404
     public void testGetPetById404() {
         Response response = RestAssured.given()
                 .when()
@@ -127,6 +131,47 @@ public class PetStoreAPITest {
         Assert.assertEquals(message, "Pet not found");
         
     }
+    
+
+    @Test(priority=6) //Upload a pet image 
+    public void testUploadPetImage() {
+        // Define the API endpoint for image upload
+        //String uploadEndpoint = "https://example.com/upload";
+
+        // Define the path to the image file
+        File imageFile = new File("./src/test/java/resources/images/petImage.jpg");
+
+        // Send a POST request with a multipart/form-data body containing the image
+        Response response = RestAssured.given()
+            .multiPart("file", imageFile)  // "file" is the form field name for the file
+            .when()
+            .post("/pet/8/uploadImage");
+
+        // Perform assertions on the response
+        response.then().statusCode(200); 
+
+        // You can also validate the response body or headers if needed
+        // response.then().body("key", equalTo("value"));
+        // response.then().header("headerName", "headerValue");
+    }
+
+    
+    @Test(priority=7) // find pet by Status
+    public void testfindPetByStatus() {
+    	
+    	String[] petStatus = {"available","sold"};
+    	
+        // Send a GET request with the string array as a query parameter
+        Response response = RestAssured.given()
+            .param("status", petStatus)
+            .when()
+            .get("/pet/findByStatus");
+
+        int statusCode = response.getStatusCode();
+        Assert.assertEquals(statusCode, 200);
+    
+    }
+    
 
     
 }
